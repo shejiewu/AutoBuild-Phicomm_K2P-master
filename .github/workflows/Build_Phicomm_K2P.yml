@@ -82,12 +82,9 @@ jobs:
     - name: Configuration Customization - Build_Phicomm_K2P
       env:
         CONFIG_FILE: 'Build_Phicomm_K2P.config'
+        DIY_P2_SH: 'DIY-PART2.sh'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        
-      env:
-        DIY_P2_SH: 'DIY-PART2.sh'
-      run: |  
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
